@@ -15,13 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from hmt.views import EventCreateView, EventTypeCreateView
+from hmt.views import EventCreateView, EventTypeCreateView, EventTypesListView
 
 urlpatterns = [
+    path('', EventTypesListView.as_view(template_name="list_event_types.html")),
     path('admin/', admin.site.urls),
-    path('add_new_event/', EventCreateView.as_view()),
+    path('add_new_event/', EventCreateView.as_view(
+        template_name="new_event_form.html")),
     path('add_new_event_type/', EventTypeCreateView.as_view(
-        template_name="new_event_type_form.html")),
-    # path('set_value/', ValueSetView.as_view(
-    #     template_name="value_set_form.html")),
+        template_name="new_event_type_form.html"))
 ]

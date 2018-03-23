@@ -2,16 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tu bedzie nowy event type</title>
+    <title></title>
 </head>
 <body>
-Co chcesz śledzić?
+Sledż lub śledziona. Dodaj wartość
 <form action="" method="post">{% csrf_token %}
     {{ form.as_p }}
-    {{ event_type.get_calculation_type_display }}
     <input type="submit" value="Save" />
 </form>
 </body>
 </html>
-
-

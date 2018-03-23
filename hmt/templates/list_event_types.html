@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Już śledzisz:</h1>
+<ul>
+{% for event_type in object_list %}
+    <li>{{ event_type.event_name }}
+    <form method='POST'>
+        {{form.as_p}}
+        wpisz wartość
+        <input type="number" name="value">
+        <button type="submit">Save</button>
+    </form>
+    </li>
+{% empty %}
+    <li>No articles yet.</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/../gwaith-demo/.idea/gwaith-demo.iml" filepath="$PROJECT_DIR$/../gwaith-demo/.idea/gwaith-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/how_many_times_project.iml" filepath="$PROJECT_DIR$/.idea/how_many_times_project.iml" />
-    </modules>
-  </component>
-</project>

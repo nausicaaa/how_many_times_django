@@ -12,6 +12,6 @@ class Event(models.Model):
     date = models.DateTimeField(auto_now=True)
     value = models.IntegerField()
 
-
-
-
+    #TODO
+    # created = models.DateTimeField(auto_now_add=True)
+    # modified = models.DateTimeField(auto_now=True)
