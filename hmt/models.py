@@ -1,10 +1,15 @@
 from django.db import models
 
+
 class EventType(models.Model):
-    CHOICES = ((0, "incremental"), (3, "three_points"), (5, "five_points"),
-               (10, "ten_points"))
+    INC = 0
+    THREE_POINTS = 3
+    FIVE_POINTS = 5
+    TEN_POINTS = 10
+    CHOICES = ((INC, "incremental"), (THREE_POINTS, "three_points"), (FIVE_POINTS, "five_points"),
+               (TEN_POINTS, "ten_points"))
     event_name = models.CharField(max_length=255)
-    calculation_type = models.IntegerField(choices=CHOICES, default=0)
+    calculation_type = models.IntegerField(choices=CHOICES, default=INC)
 
 
 class Event(models.Model):

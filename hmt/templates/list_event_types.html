@@ -3,21 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <style>
+        .box {
+            border: 5px dotted green;
+            display: inline-block;
+            padding: 5px;
+            border-radius: 10px 10px 10px 10px;
+            background-color: lime;
+            margin: 3px;
+        }
+    </style>
 </head>
 <body>
+<script>
+$( window ).load(function() {
+    $(".box").click(function(e){
+        console.info(this, e);
+        $.ajax({
+            type: "POST",
+            url: "/add_new_event/",
+            data: {
+                event_type_id: $(this).attr("data-id"),
+                value: $(this).find("input").first().val()
+            },
+            success: function(result){
+                console.log(result);
+            }
+        });
+        e.preventDefault();
+    });
+});
+</script>
+
+
+
 <h1>Już śledzisz:</h1>
 <ul>
 {% for event_type in object_list %}
-    <li>{{ event_type.event_name }}
-    <form method='POST'>
-        {{form.as_p}}
-        wpisz wartość
-        <input type="number" name="value">
-        <button type="submit">Save</button>
-    </form>
+    <li>
+        <div class=box data-id="{{ event_type.id }}">
+            {{ event_type.event_name }}
+            <input type="number" >
+        </div>
     </li>
 {% empty %}
-    <li>No articles yet.</li>
+    <li>No event types yet.</li>
 {% endfor %}
 </ul>
 
