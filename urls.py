@@ -2,15 +2,17 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
+from rest_framework import routers
 
 from hmt import views
-from hmt.views import EventCreateView, EventTypeCreateView, EventTypesListView
+
+router = routers.DefaultRouter()
+router.register(r'event_types', views.EventTypeViewSet)
 
 urlpatterns = [
-    path('', EventTypesListView.as_view()),
     path('admin/', admin.site.urls),
-    path('add_new_event_type/', EventTypeCreateView.as_view()),
-    path('add_new_event/', views.create_event)
+    url(r'', include('hmt.urls', namespace='hmt')),
+    url('api/', include((router.urls, 'api'))),
 ]
 
 if settings.DEBUG:
